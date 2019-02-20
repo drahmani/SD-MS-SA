@@ -1,2 +1,2 @@
-# SSA
-Singular Spectrum Analysis
+# Singular Spectrum Analysis
+
