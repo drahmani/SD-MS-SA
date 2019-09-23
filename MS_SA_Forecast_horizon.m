@@ -1,14 +1,14 @@
-function [hat_y,error_rec,U,Phi_x]=MSSA_Forecast_horizon(Y,L,h,r,horizon,Phi)
+function [hat_y,error_rec,U,Phi_x]=MS_SA_Forecast_horizon(Y,L,h,r,horizon,Phi)
 %horizon=train_size
 [N,~]=size(Y);
 j=1;
 for k=horizon:N-h
     X=Y(1:k,:);
     if nargin < 6
-    [yy_hat,y_hat,U,~,Phi_xx] = MSSA_Forecast(X,h,L,r);
+    [yy_hat,y_hat,U,~,Phi_xx] = MS_SA_Forecast(X,h,L,r);
     Phi_x(j,:)=Phi_xx;
     else
-    [yy_hat,y_hat,U,~,~] = MSSA_Forecast(X,h,L,r,Phi(j,1:(L-1),:));
+    [yy_hat,y_hat,U,~,~] = MS_SA_Forecast(X,h,L,r,Phi(j,1:(L-1),:));
     Phi_x=Phi(j,1:(L-1),:);
     end
     g(k+h,:)=yy_hat(k+h,:); % this saves hth forecast
