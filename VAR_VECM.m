@@ -1,21 +1,10 @@
-%Mdl = varm('AR',{cov1/10000})
-clearvars -except Y_hat_UK Y_hat_Gr Y_hat_Fr
 close all
 clc
-%load UKad.csv
-%load Germanyad.csv
-%Y=UKad;
-%Y=Germanyad;
-%load Francead.csv;
-%Y=Francead;
-%horizon=220;%210%125;
-load data.mat;
-Y=Yf';
+load IPI
 [N,M]=size(Y);
 horizon=50;
 j=1;
 h=1;
-clear YF Yf
 for i=horizon:N-h
 Mdl1 = vecm(M,1,0);
 EstMdl1 = estimate(Mdl1,Y(1:i,:));%summarize(EstMdl);
