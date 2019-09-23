@@ -1,9 +1,7 @@
-function [Phi]=MBootstrapSSA_Forecast(L,r,Y,iter,horizon)
-addpath('/Users/donya/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents-Donya-Mac/SOEM/SOEM-SSA/SSA codes/ssa-last-2019 June/tools')
-addpath('/Users/donya/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents-Donya-Mac/SOEM/SOEM-SSA/SSA codes/ArXive SSA codes/Github')
+function [Phi]=MBootstrap_SSA_Forecast(L,r,Y,iter,horizon)
 Y=Y(1:horizon,:); % phi's should be generated only for those points which have beed observed till now! (horizon) therefore h=1
 % use . reconstruction information
-[U,error_rec,y_hat]=MSSA_rec_donya(Y,L,r);
+[U,error_rec,y_hat]=MS_SA_rec(Y,L,r);
 %now generate muti_norm random variable from  mean(error_rec) and
 %Sigma(error_rec) and find boostrap Phi
 hx1=y_hat;
@@ -15,10 +13,5 @@ for i=1:iter
     [U,~,~]=MSSA_rec_donya(X1,L,r);
     %[y_hat,~,U]=MSSA_Forecast_horizon(X1,h,L,r,horizon);
 end
-%%%average bootstrap Phi and find the forecast y by the average boot_phi
-% Phi_boot=mean(Phi,2);
-% y_hat_boot(1:horizon,:) =y_hat(1:horizon,:);
-% for i=1:h
-%     y_hat_boot(horizon+i,:) = y_hat_boot((horizon-L+1+i:horizon+i-1),:)'*Phi_boot;
-% end
+
 
