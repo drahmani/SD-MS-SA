@@ -1,4 +1,4 @@
-function [Phi_sdm]= BHSDM_SSA(alpha,beta,horizon,Y,L,r,iter,h)
+function [Phi_sdm]= BHS_DM_SS_A(alpha,beta,horizon,Y,L,r,iter,h)
   %Select 2m observation and Fit AR(k) model to m  the time series X
   %n number of forecasting
   [N,M]=size(Y);
