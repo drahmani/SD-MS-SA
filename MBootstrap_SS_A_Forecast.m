@@ -1,4 +1,4 @@
-function [Phi]=MBootstrap_SSA_Forecast(L,r,Y,iter,horizon)
+function [Phi]=MBootstrap_SS_A_Forecast(L,r,Y,iter,horizon)
 Y=Y(1:horizon,:); % phi's should be generated only for those points which have beed observed till now! (horizon) therefore h=1
 % use . reconstruction information
 [U,error_rec,y_hat]=MS_SA_rec(Y,L,r);
