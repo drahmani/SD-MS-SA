@@ -4,7 +4,7 @@ function [Phi_sdm]= BHS_DM_SS_A(alpha,beta,horizon,Y,L,r,iter,h)
   [N,M]=size(Y);
   k=L-1;
   %Multivariate bootstrap 
-  [phi]=MBootstrapSSA_Forecast(L,r,Y,iter,horizon);
+  [phi]=MBootstrap_SS_A_Forecast(L,r,Y,iter,horizon);
   Phi_boot=mean(phi,2);
   %Rhat=Z*t(Z)
   R_hat=cov(phi')*beta;
