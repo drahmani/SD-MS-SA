@@ -10,7 +10,7 @@ cov_e=cov(error_rec);
 for i=1:iter
     Phi(:,i) = ssa_phi(U,r,L);
     X1=hx1+mvnrnd(mu1,cov_e,horizon);
-    [U,~,~]=MSSA_rec_donya(X1,L,r);
+    [U,~,~]=MS_SA_rec(X1,L,r);
     %[y_hat,~,U]=MSSA_Forecast_horizon(X1,h,L,r,horizon);
 end
 
