@@ -1,6 +1,5 @@
-function [U,error_rec,y_hat]=MSSA_rec_donya(Y,L,r)
+function [U,error_rec,y_hat]=MS_SA_rec(Y,L,r)
 [~,M]=size(Y);
-%%
 %%%run SSA-Reconstruction step to get U and rec_error for Y(1:horizon,:)
 XX=[];
 CC = zeros(L,L);
@@ -15,7 +14,7 @@ end
 [L,KM] = size(Xrecon);
 for m=1:M
     T(m).Xrecon = Xrecon(:,(KM/M)*(m-1)+1:(KM/M)*(m));
-    T(m).Yrecon = hankelisation(T(m).Xrecon);
+    T(m).Yrecon = hankel_isation(T(m).Xrecon);
     y_hat(:,m) = T(m).Yrecon;    
     error_rec(:,m)=Y(:,m)-y_hat(:,m);%reconstruction error
 end
